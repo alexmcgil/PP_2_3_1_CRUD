@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${user.getName()}">VALUE</title>
+        <style>
+            button {
+                background-image: linear-gradient(-48deg,#4b8aff,#407ef2);
+                background-size: 100% 100%,cover;
+                border-radius: 10px;
+                border: none;
+                color: #fff;
+                display: block;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 56px;
+                height: 60px;
+                width: 360px;
+                margin-top: 30px;
+                text-align: center;
+                transition: all .3s;
+                cursor: pointer;
+            }
+            #submit {
+                background: green;
+                border-radius: 10px;
+                border: none;
+                color: #fff;
+                display: block;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 56px;
+                height: 60px;
+                width: 360px;
+                margin-top: 30px;
+                text-align: center;
+                transition: all .3s;
+                cursor: pointer;
+            }
+            div {
+                width: 680px;
+                margin: 150px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form th:method="PATCH" th:action="@{/users}" th:object="${user}">
+                <label for="id">ID: </label>
+                <input type="text" th:field="*{id}" id="id" readonly/>
+                <br/><br/>
+                <label for="name">Enter name: </label>
+                <input type="text" th:field="*{name}" id="name"/>
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
+                <br/><br/>
+                <label for="name">Enter last name: </label>
+                <input type="text" th:field="*{lastName}" id="age"/>
+                <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</div>
+                <br/><br/>
+                <label for="name">Enter gender: </label>
+                <input type="text" th:field="*{gender}" id="email"/>
+                <div th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Error</div>
+                <br/><br/>
+                <input id="submit" type="submit" value="Update"/>
+            </form>
+        </div>
+    </body>
+</html>
