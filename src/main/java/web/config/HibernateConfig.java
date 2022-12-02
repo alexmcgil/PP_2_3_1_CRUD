@@ -21,7 +21,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:db.properties")
-@EnableTransactionManagement(proxyTargetClass = true)
+@EnableTransactionManagement
 @ComponentScan(value = "web")
 public class HibernateConfig {
 
