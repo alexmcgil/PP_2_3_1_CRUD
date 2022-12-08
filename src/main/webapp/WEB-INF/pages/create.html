@@ -53,11 +53,11 @@
                 <input type="text" th:field="*{name}" id="name"/>
                 <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
                 <br/><br/>
-                <label for="name">Enter last name: </label>
+                <label for="lastName">Enter last name: </label>
                 <input type="text" th:field="*{lastName}" id="lastName"/>
                 <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</div>
                 <br/><br/>
-                <label for="name">Enter gender: </label>
+                <label for="gender">Enter gender: </label>
                 <input type="text" th:field="*{gender}" id="gender"/>
                 <div th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Error</div>
                 <br/><br/>
