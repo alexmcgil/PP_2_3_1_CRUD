@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+    <style>
+        button {
+            background: darkred;
+            background-size: 100% 100%,cover;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 56px;
+            height: 60px;
+            width: 360px;
+            margin-top: 30px;
+            text-align: center;
+            transition: all .3s;
+            cursor: pointer;
+        }
+        #submit {
+            background: green;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 56px;
+            height: 60px;
+            width: 360px;
+            margin-top: 30px;
+            text-align: center;
+            transition: all .3s;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+        }
+        div {
+            width: 680px;
+            margin: 150px auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form th:method="POST" th:action="@{/users}" th:object="${user}">
+        <label for="name">Enter name: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
+        <br/><br/>
+        <label for="lastName">Enter last name: </label>
+        <input type="text" th:field="*{lastName}" id="lastName"/>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</div>
+        <br/><br/>
+        <label for="gender">Enter gender: </label>
+        <input type="text" th:field="*{gender}" id="gender"/>
+        <div th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Error</div>
+        <br/><br/>
+        <input id="submit" type="submit" value="Create"/>
+    </form>
+    <a href="/users">
+        <button>Back to user's page</button>
+    </a>
+</div>
+
+</body>
+</html>

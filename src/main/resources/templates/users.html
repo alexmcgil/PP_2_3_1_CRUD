@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>
+        button {
+            background-image: linear-gradient(-48deg,#4b8aff,#407ef2);
+            background-size: 100% 100%,cover;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 56px;
+            height: 60px;
+            width: 360px;
+            margin-top: 30px;
+            text-align: center;
+            transition: all .3s;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div style="margin: 150px auto; width: 600px">
+    <table th:border="1" th:cellpadding="2">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Gender</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getId()}">id</td>
+            <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getName()}">name</a></td>
+            <td th:text="${user.getLastName()}">lastName</td>
+            <td th:text="${user.getGender()}">gender</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/" style="color: #fff;">
+        <button style="margin-top: 50px">Back to home page</button>
+    </a>
+    <a href="/users/create" style="color: #fff; background: green">
+        <button style="margin-top: 50px">Create user</button>
+    </a>
+</div>
+</body>
+</html>
